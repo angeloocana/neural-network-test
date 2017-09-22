@@ -13,6 +13,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "ptz-math": "^1.1.0",
     "synaptic": "^1.1.2"
   },
   "devDependencies": {
