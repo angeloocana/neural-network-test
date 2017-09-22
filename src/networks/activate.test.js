@@ -18,7 +18,7 @@ describe('networks propagate', () => {
 
     const output = myNetwork.activate([1, 0, 1, 0]);
 
-    console.log(output);
+    // console.log(output);
     assert.equal(output.length, 2);
     assert.ok(output[0] < 1);
     assert.ok(output[1] < 1);
@@ -39,7 +39,7 @@ describe('networks propagate', () => {
     });
 
     const output = myNetwork.activate([1, 0, 0, 0, 0, 0, 0, 0, 0]);
-    console.log('tic tac toe: ', output);
+    // console.log('tic tac toe: ', output);
     assert.equal(output.length, 9);
   });
 });
