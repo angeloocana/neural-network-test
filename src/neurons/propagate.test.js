@@ -1,7 +1,7 @@
 import { Neuron } from 'synaptic';
 import * as assert from 'ptz-assert';
 
-describe('propagate', () => {
+describe('neurons propagate', () => {
   it('example 1', () => {
     const A = new Neuron();
     const B = new Neuron();
@@ -10,7 +10,7 @@ describe('propagate', () => {
 
     const learningRate = 0.3;
 
-    for (var i = 0; i < 20000; i++) {
+    for (var i = 0; i < 20000; i += 1) {
       // when A activates 1
       A.activate(1);
 
@@ -24,5 +24,5 @@ describe('propagate', () => {
 
     const output = B.activate();
     assert.ok(output < 0.001);
-  })
+  });
 });
