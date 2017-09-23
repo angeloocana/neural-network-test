@@ -42,28 +42,4 @@ describe('networks propagate', () => {
     assert.ok(myNetwork.activate([1, 0]) > 0.8, '1,0 > 0.8');
     assert.ok(myNetwork.activate([1, 1]) < 0.2, '1,1 < 0.2');
   });
-
-  it('tic tac toe', () => {
-    const inputLayer = new Layer(9);
-    const hiddenLayer = new Layer(9);
-    const outputLayer = new Layer(9);
-
-    inputLayer.project(hiddenLayer);
-    hiddenLayer.project(outputLayer);
-
-    const myNetwork = new Network({
-      input: inputLayer,
-      hidden: [hiddenLayer],
-      output: outputLayer
-    });
-
-
-    // const get
-
-
-    myNetwork.activate([-1, -1, 0, 0, 0, 0, 0, 0, 0]);
-
-    
-    // myNetwork.propagate(learningRate, [0]);
-  });
 });
