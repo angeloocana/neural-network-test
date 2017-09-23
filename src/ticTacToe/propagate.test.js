@@ -1,15 +1,18 @@
 // import * as assert from 'ptz-assert';
 import { getNetwork } from './getNetwork';
-import { initialBoard } from './initialBoard';
 // import {random} from 'ptz-math';
 import {
-  xValue,
   loseValue,
   winValue,
   getMyScore
 } from './getScore';
+import {
+  xValue,
+  oValue,
+  initialBoard
+} from './constants';
 import { move } from './move';
-import {printBoard} from './printBoard';
+import { printBoard } from './printBoard';
 
 const learningRates = {
   invalidMove: 0.3,
@@ -25,6 +28,7 @@ const moveAndPropagate = (net, board, value) => {
   console.log('output: ', output);
 
   const newBoard = move(board, output, value);
+  console.log('newBoard: ', newBoard);
   printBoard('new board: ', newBoard);
 
   if (newBoard) {
@@ -57,7 +61,10 @@ describe('tic tac toe propagate', () => {
     let board = initialBoard;
 
     for (var i = 0; i < 100; i += 1) {
-      board = moveAndPropagate(netX, board, xValue);
+      const value = i % 2 === 0 ? xValue : oValue;
+
+      board = moveAndPropagate(netX, board, value);
+
       if (board === null) {
         board = initialBoard;
       }
